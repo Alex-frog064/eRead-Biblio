@@ -7,24 +7,19 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-// CORS configuration
-// Allow a configurable list of origins via env ALLOWED_ORIGINS (comma-separated).
-// In non-production, reflect the request origin to make local development easier
-// (allows calls from ports like http://localhost:10000, 3000, 5173, etc.).
+
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim())
   : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:10000', 'https://ereadapi.onrender.com'];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (e.g., curl, mobile apps)
+    
     if (!origin) return callback(null, true);
-    // If origin is in allowed list, allow it
+  
     if (allowedOrigins.indexOf(origin) !== -1) {
       return callback(null, true);
     }
-    // In development, allow any origin (convenience). In production, block unknown origins.
     if (process.env.NODE_ENV !== 'production') {
       return callback(null, true);
     }
