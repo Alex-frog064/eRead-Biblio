@@ -2,11 +2,13 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const cors = require('cors');
+const morgan = require('morgan');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000 ||'https://ereadapi.onrender.com';
 
+app.use(morgan('dev'))
 // Middlewares
 app.use(cors({
   origin: [ 'https://ereadapi.onrender.com', 'http://localhost:3000',], 
