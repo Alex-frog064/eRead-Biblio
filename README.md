@@ -2,16 +2,16 @@
 
 API REST sencilla con documentación Swagger para operaciones CRUD con MySQL en Clever Cloud.
 
-## 🚀 Características
+##  Características
 
-- ✅ Operaciones CRUD completas (Create, Read, Update, Delete)
-- 📚 Documentación Swagger/OpenAPI integrada
-- 🗄️ Conexión a MySQL en Clever Cloud
-- 🏗️ Estructura limpia y organizada
-- 🔒 Validación de datos
-- 🛡️ Manejo de errores
+-  Operaciones CRUD completas (Create, Read, Update, Delete)
+-  Documentación Swagger/OpenAPI integrada
+-  Conexión a MySQL en Clever Cloud
+- Estructura limpia y organizada
+-  Validación de datos
+-  Manejo de errores
 
-## 📋 Requisitos Previos
+##  Requisitos Previos
 
 - Node.js (versión 14 o superior)
 - npm o yarn
@@ -31,20 +31,18 @@ npm install
    - Copia el archivo `.env.example` y renómbralo a `.env`
    - Completa las credenciales de tu base de datos MySQL de Clever Cloud:
 ```env
-PORT=3000
-MYSQL_ADDON_HOST=tu_host_aqui
+MYSQL_ADDON_HOST=byitpt4cf7iw4tcf5uz1-mysql.services.clever-cloud.com
 MYSQL_ADDON_PORT=3306
-MYSQL_ADDON_USER=tu_usuario_aqui
-MYSQL_ADDON_PASSWORD=tu_contraseña_aqui
-MYSQL_ADDON_DB=tu_base_de_datos_aqui
-MYSQL_SSL=false
+MYSQL_ADDON_USER=uwjxvpltfb3mwt4x
+MYSQL_ADDON_PASSWORD=8A4vuOfUJ6wTIkbVFyhV
+MYSQL_ADDON_DB=byitpt4cf7iw4tcf5uz1
 ```
 
 4. Crear la tabla en la base de datos:
    - Ejecuta el script SQL en `sql/schema.sql` en tu base de datos MySQL de Clever Cloud
    - Puedes hacerlo desde el panel de Clever Cloud o usando un cliente MySQL
 
-## 🚀 Ejecución
+##  Ejecución
 
 ### Modo desarrollo (con nodemon):
 ```bash
@@ -58,7 +56,7 @@ npm start
 
 El servidor estará disponible en: `http://localhost:3000`
 
-## 📚 Documentación API
+##  Documentación API
 
 Una vez que el servidor esté corriendo, puedes acceder a la documentación Swagger en:
 
@@ -174,7 +172,7 @@ curl http://localhost:3000/api/libros
 curl http://localhost:3000/api/registros/libro/1
 ```
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 BdEread/
