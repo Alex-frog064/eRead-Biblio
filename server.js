@@ -6,12 +6,14 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000 ||'https://ereadapi.onrender.com';
+const PORT = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
+const BASE_URL = isProduction ? 'https://ereadapi.onrender.com' : `http://localhost:${PORT}`;
 
 app.use(morgan('dev'))
 // Middlewares
 app.use(cors({
-  origin: [ 'https://ereadapi.onrender.com', 'http://localhost:3000',], 
+  origin: ['https://ereadapi.onrender.com', 'http://localhost:3000', 'http://localhost:10000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -33,7 +35,11 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}` || 'https://ereadapi.onrender.com',
+        url: 'https://ereadapi.onrender.com',
+        description: 'Servidor de producción'
+      },
+      {
+        url: `http://localhost:${PORT}`,
         description: 'Servidor de desarrollo'
       }
     ]
