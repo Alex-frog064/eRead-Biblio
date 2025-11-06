@@ -1,5 +1,3 @@
--- Script SQL para crear todas las tablas de la base de datos
--- Ejecutar este script en tu base de datos MySQL de Clever Cloud
 
 -- Tabla: autor
 CREATE TABLE IF NOT EXISTS autor (
