@@ -44,6 +44,11 @@ const swaggerOptions = {
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// Root route redirect to API documentation
+app.get('/', (req, res) => {
+  res.redirect('/api-docs');
+});
+
 // Routes
 const autoresRoutes = require('./routes/autores');
 const categoriasRoutes = require('./routes/categorias');
@@ -96,7 +101,7 @@ app.get('/health', (req, res) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
-    error: 'Error interno del servidor',
+    error: 'Errors interno del servidor',
     message: err.message
   });
 });
