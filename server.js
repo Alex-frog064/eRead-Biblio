@@ -31,7 +31,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
+        url: `http://localhost:${PORT}` || 'https://ereadapi.onrender.com',
         description: 'Servidor de desarrollo'
       }
     ]
